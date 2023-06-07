@@ -39,7 +39,7 @@ io.on("connection", async (socket) => {
 
     // socket.broadcast.emit("ChatBot Answer", data);
     const response = await axios
-      .post("https://flask-app-python.azurewebsites.net/chat", {
+      .post("https://aj-py.azurewebsites.net/chat", {
         chat: data,
       })
       .then((response) => {

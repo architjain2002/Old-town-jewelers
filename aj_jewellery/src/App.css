@@ -1,0 +1,21 @@
+/* All Buttons Styling */
+button {
+    padding: 1em;
+    width: 40%;
+    border: 1px solid #EEFCF8;
+    border-radius: 3em;
+    background-color: #035E7B;
+    color: #EEFCF8;
+    font-weight: bolder;
+    font-size: larger;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover{
+    opacity: 0.9;
+}

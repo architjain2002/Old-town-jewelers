@@ -1,0 +1,80 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #533d58;
+    color: #ddcda6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navbar .logo{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.navbar #cursive{
+    font-family: 'Shantell Sans', cursive;
+    font-weight: bolder;
+    font-size: larger;
+    padding-left: 20px
+}
+
+.navbar img{
+    border-radius: 30%;
+    width:50px;
+    height: 50px;
+}
+
+.navbar .links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+}
+.navbar .links span{
+    padding:0px 30px;
+    cursor: pointer;
+}
+
+.links span:hover{
+    text-decoration: underline;
+    text-decoration-color: #ddcda6;
+}
+
+.navbar #hamburger{
+    display: none;
+}
+
+@media only screen and (max-width: 700px)  {
+    .navbar .links{
+        display: none;
+    }
+    .navbar #hamburger{
+        display: block;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    .navbar #hamburger .hamburgerlinks p{
+        cursor: pointer;
+    }
+}
+@media only screen and (max-width: 300px)  {
+    .navbar #cursive{
+        font-size: 0;
+    }
+}
+@media only screen and (max-width: 200px)  {
+    .navbar img{
+        display: none;
+    }
+    
+}
+
+
+

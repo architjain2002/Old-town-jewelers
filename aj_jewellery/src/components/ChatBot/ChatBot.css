@@ -1,0 +1,17 @@
+.time{
+    margin: 5px;
+    text-align: right;
+}
+.chatbot_left{
+    color: rgb(19 79 40);
+    padding-left:10px;
+    text-align: left;
+    width: 50%;
+}
+
+.chatbot_right{
+    color:  #61217c;
+    text-align: right;
+    padding-left:48%;
+    width: 50%;
+}

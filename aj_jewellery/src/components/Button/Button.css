@@ -1,0 +1,9 @@
+#button{
+    width: 20%;
+    height:60px;
+    font-size: large;
+    font-weight: bolder;
+    list-style: none;
+    border: 1px solid #4c81ac;
+    border-radius: 20px;
+} 

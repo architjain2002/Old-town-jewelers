@@ -1,0 +1,70 @@
+.orderPage{
+    background-color:#d9eaec;
+    margin-top: 3.8%;
+    min-height: 69vh;
+}
+
+.orderPage .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Shantell Sans', cursive;
+}
+
+.orderPage .container h1{
+    color:rgb(3, 94, 123);
+}
+
+.orderPage table{ 
+    width: 80%;
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.orderPage thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.orderPage th,.orderPage td{
+    text-align: center;
+    border: 2px solid black;
+    padding: 12px 15px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.orderPage tbody tr {
+    border-bottom: 1px solid #dddddd;
+    color: #021441;
+}
+
+.orderPage tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.orderPage tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+
+.orderPage .green{
+    color:green;
+}
+
+.orderPage .red{
+    color:red;
+}
+
+.orderPage .pointer{
+    cursor: pointer;
+}

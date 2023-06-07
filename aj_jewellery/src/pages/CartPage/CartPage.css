@@ -1,0 +1,13 @@
+.cartPage{
+    background-color:#d9eaec;
+    margin-top: 3.8%;
+}
+
+
+.cartPage .empty h1{
+
+    height: 66vh;
+    font-size: xx-large;
+    text-align: center;
+    color:#ddcda6;
+}

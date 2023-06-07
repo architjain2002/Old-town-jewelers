@@ -1,0 +1,135 @@
+.landingPage{
+    background-color:#c9dbdd;
+}
+.mainContent{
+    display: flex;
+    height: 70vh;
+    margin: 3.8% 0;
+}
+.mainContent .left{
+    display: block;
+    background-image: url('../../images/react-particles.gif');
+    width: 50%;
+}
+.mainContent .left h1{
+    margin: auto;
+    font-family: 'Shantell Sans', cursive;
+    text-align: center;
+    width: 50%;
+    margin-top:20%;
+    margin-bottom: 5%;
+}
+
+.mainContent .left p{
+    display: block;
+    margin: auto;
+    font-family: 'Shantell Sans', cursive;
+    text-align:center;
+    font-size: large;
+    font-weight: 600;
+    color:#ddcda6;
+    margin-top: 30%;
+    line-height: 200%;
+}
+.mainContent .right{
+    width: 50%;
+}
+
+.mainContent .right1{
+    width: 70%;
+}
+.mainContent .right img{
+    height: 70vh;
+    width: 100%;
+}
+
+.mainContent .left button{
+    display: block;
+    margin: auto;
+}
+
+#explore{
+    /* height: 60vh; */
+    background-color: #505C7A;
+}
+
+
+.priceSection{
+    background-color: #505C7A;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+
+.priceSection h1{
+    text-align: center;
+    color:#ddcda6;
+}
+.rateTable{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid;
+    margin-bottom: 50px;
+}
+
+.rateTable tr th, .rateTable tr td{
+    border:1px solid black;
+    padding:20px;
+}
+
+.rateTable tr th{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.rateTable tr td{
+    font-size: medium;
+    font-weight: bold;
+}
+
+
+.buttonsPriceSection{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer{
+    padding:1%;
+    background-color: black;
+    font-family: sans-serif;
+}
+.footer .footerTable{
+    width: 100%;
+    color: grey;
+    text-align:left;
+}
+
+
+.footerTable tr th{
+    font-size: larger;
+    font-weight: bolder;
+    padding: 1%
+}
+
+.footerTable tr td{
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 1%;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:700px) {
+    .mainContent .right{
+        width: 0%;
+    }
+    .mainContent .right img{
+        display: none;
+    }
+    .mainContent .left{
+        width: 100%;
+    }
+
+    .footerResponsive{
+        font-size: 0;
+    }
+}

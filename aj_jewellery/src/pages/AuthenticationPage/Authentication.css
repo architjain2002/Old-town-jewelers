@@ -1,0 +1,91 @@
+.cfb{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Banner Side of Container */
+.banner-side{
+    position: absolute;
+    z-index: 2;
+    right: 65%;
+    width: 35%;
+    height: 100%;
+    flex-direction: column;
+    background-color: #035E7B;
+    opacity: 1;
+    color: #EEFCF8;
+    text-align: center;
+    transition: 2s;
+}
+
+/* Form Side of Container */
+.form-side{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background-color: #EEFCF8;
+    opacity: 1;
+    font-weight: bold;
+    color: #035E7B;
+    transition: 2s;
+}
+
+.send-right{
+    right: 0;
+}
+
+.send-left{
+    right: 35%;
+}
+
+/* Layout styling of forms, labels, inputs */
+.form-comp{
+    flex-direction: column;
+}
+
+.sign-up-form{
+    width: 50%;
+    flex-direction: column;
+}
+
+.sign-up-form > label{
+    padding: 0.5em;
+    width: 100%;
+    font-size:larger;
+    font-weight: bold;
+}
+
+.sign-up-form > label > input{
+    width: 100%
+}
+
+/* All Inputs Styling */
+
+.cfb input {
+    padding: 1em;
+    border: 1px solid #035E7B;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: large;
+    color: #035E7B;
+}
+
+
+/*Go to  Home Page */
+.goHome i{
+    position:absolute;
+    z-index: 1000;
+    right:5px;
+    top:3px;
+    cursor: pointer;
+}
+
+.goHome :hover{
+    background-color: rgba(0,0,0,0.1);
+    transition: 1s ease-out;
+}

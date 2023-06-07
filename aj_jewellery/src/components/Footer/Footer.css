@@ -1,0 +1,32 @@
+
+.footer{
+    padding:1%;
+    background-color: black;
+    font-family: sans-serif;
+}
+.footer .footerTable{
+    width: 100%;
+    color: grey;
+    text-align:left;
+}
+
+
+.footerTable tr th{
+    font-size: larger;
+    font-weight: bolder;
+    padding: 1%
+}
+
+.footerTable tr td{
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 1%;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width:700px) {
+    .footerResponsive{
+        font-size: 0;
+    }
+}

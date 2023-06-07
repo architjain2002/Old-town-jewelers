@@ -1,0 +1,13 @@
+.menuItem{
+    width: 100%;
+}
+
+
+.menuItem > #composition-button{
+    width: 100px;
+    color:#ddcda6;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+}
+

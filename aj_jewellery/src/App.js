@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CartPage from "./pages/CartPage/CartPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Authentication from "./pages/AuthenticationPage/Authentication";
 import OrderPage from "./pages/OrderPage/OrderPage";
 import AdminOrderPage from "./pages/AdminOrderPage/AdminOrderPage";
-import ChatBot from "./components/ChatBot/ChatBot";
 import { io } from "socket.io-client";
 
 function App() {
@@ -46,12 +40,14 @@ function App() {
       // console.log(chats);
     });
 
-    return () => {
-      localStorage.setItem("user", "");
-      localStorage.setItem("userId", "");
-      localStorage.setItem("Gold", "");
-      localStorage.setItem("Silver", "");
-    };
+    // clean up code to erase local storage
+    // return () => {
+    //   localStorage.setItem("user", "");
+    //   localStorage.setItem("userId", "");
+    //   localStorage.setItem("Gold", "");
+    //   localStorage.setItem("Silver", "");
+    // };
+    // eslint-disable-next-line
   }, []);
 
   const router = createBrowserRouter([

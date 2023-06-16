@@ -9,29 +9,28 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import Footer from "../../components/Footer/Footer";
 import CalculatorModal from "../../components/Calculator/CalculatorModal";
 import Indicator from "../../components/Indicator/Indicator";
-function LandingPage({socket}) { 
-  const [calculator,setCalculator]= useState(false);
-  const [indicater,setIndicator]=useState(false);
-  const [change,setChange]=useState();
+function LandingPage({ socket }) {
+  const [calculator, setCalculator] = useState(false);
+  const [indicater, setIndicator] = useState(false);
+  const [change, setChange] = useState();
 
-  const changeUtility= async()=>{
-    const response=await fetch(process.env.REACT_APP_API_URL+'priceChange');
-    const json=await response.json();
+  const changeUtility = async () => {
+    const response = await fetch(process.env.REACT_APP_API_URL + "priceChange");
+    const json = await response.json();
     setChange(json);
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     changeUtility();
-  },[])
+  }, []);
 
-  useEffect(()=>{
-  },[calculator])
+  useEffect(() => {}, [calculator, change]);
 
   return (
     <div className="landingPage">
       <Navbar />
-      {calculator&&<CalculatorModal closeCal={()=>setCalculator(false)}/>}
-      {indicater&&<Indicator closeIndicator={()=>setIndicator(false)}/>}
+      {calculator && <CalculatorModal closeCal={() => setCalculator(false)} />}
+      {indicater && <Indicator closeIndicator={() => setIndicator(false)} />}
       <div className="mainContent">
         <div className="left">
           <h1>Happiness Comes in the box of jewellery</h1>
@@ -76,23 +75,23 @@ function LandingPage({socket}) {
           <tbody>
             <tr>
               <td>Gold (per 10g)</td>
-              <td>Rs. {localStorage.getItem("Gold")*10}</td>
-              {change&&<td>Rs. {change[0].Gold}</td>}
+              <td>Rs. {localStorage.getItem("Gold") * 10}</td>
+              <td>{change ? `Rs. ${change[0].Gold}` : "Rs. 0"}</td>
             </tr>
             <tr>
               <td>Silver (per Kg)</td>
-              <td>Rs. {localStorage.getItem("Silver")*1000}</td>
-              {change&&<td>Rs. {change[1].Silver}</td>}
+              <td>Rs. {localStorage.getItem("Silver") * 1000}</td>
+              <td>{change ? `Rs. ${change[1].Silver}` : "Rs. 0"}</td>
             </tr>
           </tbody>
         </table>
 
         <div className="buttonsPriceSection">
-          <Button value={"Indicator"} utility={()=>setIndicator(true)}/>
-          <Button value={"Calculate"} utility={()=>setCalculator(true)}/>
+          <Button value={"Indicator"} utility={() => setIndicator(true)} />
+          <Button value={"Calculate"} utility={() => setCalculator(true)} />
         </div>
       </div>
-      <Footer socket={socket}/>
+      <Footer socket={socket} />
     </div>
   );
 }

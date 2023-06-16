@@ -16,7 +16,6 @@ function CartItem({ cartItem, toggleFlag }) {
     );
 
     const json = await response.json();
-    console.log(product);
     setProduct(json.message);
   };
 

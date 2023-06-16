@@ -109,7 +109,7 @@ function Navbar({onCreate}) {
               onClick={() => setHamburger(true)}
               style={{ marginLeft: "30px" }}
             />
-            {console.log(user)}
+            {/* {console.log(user)} */}
             <p onClick={() => goHomePage()}>Home</p>
             <p onClick={() => goProductPage()}>Product</p>
             {userId && <p onClick={() => goToCartPage()}>Cart</p>}

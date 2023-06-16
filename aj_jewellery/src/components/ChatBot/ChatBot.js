@@ -10,9 +10,9 @@ import {
   Modal,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import './ChatBot.css';
+import "./ChatBot.css";
 
-function ChatBot({ closeProduct,socket}) {
+function ChatBot({ closeProduct, socket }) {
   const [chats, setChats] = useState([]);
   const [open, setOpen] = useState(true);
 
@@ -25,16 +25,16 @@ function ChatBot({ closeProduct,socket}) {
 
   useEffect(() => {
     const user =
-        localStorage.getItem("user") != ""
-          ? localStorage.getItem("user")
-          : "Guest";
+      localStorage.getItem("user") != ""
+        ? localStorage.getItem("user")
+        : "Guest";
 
-      const newChat = `Hello ${user}, let's start your golden journey!`;
-      const date=new Date();
-      const showTime = date.toLocaleTimeString();
-      // date.getHours()+ ':' + date.getMinutes()
+    const newChat = `Hello ${user}, let's start your golden journey!`;
+    const date = new Date();
+    const showTime = date.toLocaleTimeString();
+    // date.getHours()+ ':' + date.getMinutes()
 
-      setChats([...chats, {"id":"chatbot_left","time":showTime,"chat":newChat}]);
+    setChats([...chats, { id: "chatbot_left", time: showTime, chat: newChat }]);
 
     // socket.on("connect", () => {
     //   console.log("connected")
@@ -49,17 +49,16 @@ function ChatBot({ closeProduct,socket}) {
     //   // date.getHours()+ ':' + date.getMinutes()
 
     //   setChats([...chats, {"id":1,"time":showTime,"chat":newChat}]);
-    //   console.log(chats);  
+    //   console.log(chats);
     // });
-  },[]);
+  }, []);
 
   socket.on("Answer", (obj) => {
-
     const reply = obj.Reply;
     console.log(reply);
-    const date=new Date();
+    const date = new Date();
     const showTime = date.toLocaleTimeString();
-    setChats([...chats, {"id":"chatbot_left","time":showTime,"chat":reply}]);
+    setChats([...chats, { id: "chatbot_left", time: showTime, chat: reply }]);
 
     // setChats([...chats, reply]);
     console.log(chats);
@@ -67,19 +66,22 @@ function ChatBot({ closeProduct,socket}) {
   });
 
   const utility = (event) => {
-    if(!(event!=null&&(event.key==="Enter"||event.type==="click")))
+    if (!(event != null && (event.key === "Enter" || event.type === "click")))
       return;
     const chat = document.getElementById("chat");
     if (!chat.value) {
       return;
     } else {
       //call socket.io
-      const date=new Date();
+      const date = new Date();
       const showTime = date.toLocaleTimeString();
-      setChats([...chats, {"id":"chatbot_right","time":showTime,"chat":chat.value}]);
+      setChats([
+        ...chats,
+        { id: "chatbot_right", time: showTime, chat: chat.value },
+      ]);
       socket.emit("Question", chat.value);
     }
-    chat.value="";
+    chat.value = "";
   };
   return (
     <Modal open={open} onClose={onclose}>
@@ -95,8 +97,7 @@ function ChatBot({ closeProduct,socket}) {
           outline: "none",
           // border:"1px solid black",
           borderRadius: "5%",
-        }}
-      >
+        }}>
         <Typography
           variant="h4"
           sx={{
@@ -105,50 +106,56 @@ function ChatBot({ closeProduct,socket}) {
             fontFamily: "cursive",
             color: "#035E7B",
             margin: "2rem",
-          }}
-        >
+          }}>
           Let's Chat
         </Typography>
         <Grid
           sx={{
             display: "flex",
             flexDirection: "column",
-            backgroundColor:"wheat",
-            border: "2px solid #505C7A",   
+            backgroundColor: "wheat",
+            border: "2px solid #505C7A",
             height: "400px",
             margin: "2px",
-            overflow:"auto",
+            overflow: "auto",
             marginBottom: "2rem",
-          }}  
-        >
-        {chats&&chats.map((obj,i)=>{
-          console.log(obj);
-          return <Grid><Typography variant="h4" key={i} className={obj.id}
-          sx={{
-            fontFamily: "cursive",
-            fontSize:"15px",
-            fontWeight:"bold"
           }}>
-          {obj.chat}
-          </Typography>
-          <Typography variant="h6" key={i} className={`time ${obj.id}`}
-            sx={{
-              fontFamily: "cursive",
-              fontSize:"10px",
-              fontWeight:"bold"
-            }}>
-            {obj.time}
-          </Typography>
-          </Grid>
-        })}
-        
-        </Grid>   
+          {chats &&
+            chats.map((obj, i) => {
+              // console.log(obj);
+              return (
+                <Grid>
+                  <Typography
+                    variant="h4"
+                    key={i}
+                    className={obj.id}
+                    sx={{
+                      fontFamily: "cursive",
+                      fontSize: "15px",
+                      fontWeight: "bold",
+                    }}>
+                    {obj.chat}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    key={i}
+                    className={`time ${obj.id}`}
+                    sx={{
+                      fontFamily: "cursive",
+                      fontSize: "10px",
+                      fontWeight: "bold",
+                    }}>
+                    {obj.time}
+                  </Typography>
+                </Grid>
+              );
+            })}
+        </Grid>
         <Grid
           sx={{
             display: "flex",
             alignItems: "center",
-          }}
-        >
+          }}>
           <Typography
             variant="h6"
             noWrap
@@ -160,8 +167,7 @@ function ChatBot({ closeProduct,socket}) {
               width: "100%",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -173,17 +179,15 @@ function ChatBot({ closeProduct,socket}) {
                 width: 0.8,
               }}
               id="chat"
-              onKeyDown={(event)=>utility(event)}
+              onKeyDown={(event) => utility(event)}
             />
           </Typography>
-          <Button
-            size="small"
-            onClick={(event)=>utility(event)}
-          >
-            <SendIcon sx={{ 
-              color: "#035E7B",  
-              }} 
-              />
+          <Button size="small" onClick={(event) => utility(event)}>
+            <SendIcon
+              sx={{
+                color: "#035E7B",
+              }}
+            />
           </Button>
         </Grid>
       </Grid>

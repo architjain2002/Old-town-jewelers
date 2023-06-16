@@ -6,7 +6,7 @@ import CartItem from "../../components/CartItem/CartItem";
 import Footer from "../../components/Footer/Footer.js";
 import "./CartPage.css";
 
-function CartPage({socket}) {
+function CartPage({ socket }) {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
   const [cart, setCart] = useState();
@@ -35,8 +35,7 @@ function CartPage({socket}) {
   return (
     <div className="cartPage">
       <Navbar />
-      {console.log(cart)}
-      {cart && cart.length? (
+      {cart && cart.length ? (
         cart.map((cartItem, i) => (
           <CartItem
             key={cartItem._id}
@@ -49,7 +48,7 @@ function CartPage({socket}) {
           <h1>Your Cart is Empty!</h1>
         </div>
       )}
-      <Footer  socket={socket}/>
+      <Footer socket={socket} />
     </div>
   );
 }

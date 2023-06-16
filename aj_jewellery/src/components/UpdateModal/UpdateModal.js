@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import makeToast from "../../Toaster/Toaster";
 
-const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
+const UpdateModal = ({ card, closeProduct, onUpdateUtility }) => {
   const navigate = useNavigate();
   // const [user,setUser]=useState();
   const [open, setOpen] = useState(true);
@@ -22,38 +22,40 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
     closeProduct();
   };
 
-  const updateProduct= async ()=>{
-    // console.log(card);
-    const productId=card._id;
-    const productName=document.getElementById("name");
-    const productQuantity=document.getElementById("quantity");
-    const productWeight=document.getElementById("weight");
-    const productMetal=document.getElementById("metal");
-    const productType=document.getElementById("type");
-    const productPurety=document.getElementById("purety");
-    const productPhoto=document.getElementById("photo");
-    const response = await fetch(process.env.REACT_APP_BACKEND_URL+"admin/updateProduct", {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-          productId:productId,
-          productName:productName.value ,
-          productQuantity:productQuantity.value,
-          productWeight:productWeight.value,
-          productMetal:productMetal.value,
-          productType:productType.value,
-          productPurety:productPurety.value,
-          productPhoto:productPhoto.value
-      }),
-    });
+  const updateProduct = async () => {
+    const productId = card._id;
+    const productName = document.getElementById("name");
+    const productQuantity = document.getElementById("quantity");
+    const productWeight = document.getElementById("weight");
+    const productMetal = document.getElementById("metal");
+    const productType = document.getElementById("type");
+    const productPurety = document.getElementById("purety");
+    const productPhoto = document.getElementById("photo");
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND_URL + "admin/updateProduct",
+      {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          productId: productId,
+          productName: productName.value,
+          productQuantity: productQuantity.value,
+          productWeight: productWeight.value,
+          productMetal: productMetal.value,
+          productType: productType.value,
+          productPurety: productPurety.value,
+          productPhoto: productPhoto.value,
+        }),
+      }
+    );
 
-    const json=await response.json();
+    const json = await response.json();
     onclose();
-    makeToast("info","Updated Successfully");
+    makeToast("info", "Updated Successfully");
     onUpdateUtility();
-  }
+  };
 
   return (
     <Modal open={open} onClose={onclose}>
@@ -67,8 +69,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
           height: 600,
           bgcolor: "#EEFCF8",
           outline: "none",
-        }}
-      >
+        }}>
         <Typography
           variant="h4"
           sx={{
@@ -76,9 +77,8 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
             fontWeight: "bold",
             fontFamily: "cursive",
             color: "#035E7B",
-            marginBottom:"2rem"
-          }}
-        >
+            marginBottom: "2rem",
+          }}>
           Update Product
         </Typography>
         <Grid
@@ -87,8 +87,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
             flexDirection: "column",
             alignItems: "center",
             // border:"2px solid black"
-          }}
-        >
+          }}>
           <Typography
             variant="h6"
             noWrap
@@ -100,8 +99,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -128,8 +126,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -156,8 +153,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -184,8 +180,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -212,8 +207,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -240,8 +234,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -268,8 +261,7 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
               color: "white",
               textDecoration: "none",
               textAlign: "center",
-            }}
-          >
+            }}>
             <TextField
               variant="standard"
               size="medium"
@@ -290,30 +282,26 @@ const UpdateModal = ({ card, closeProduct,onUpdateUtility}) => {
             variant="contained"
             color="primary"
             onClick={() => updateProduct()}
-            size="large"
-          >
+            size="large">
             Update Product
           </Button>
         </Grid>
 
-        
-          <Link
-            component="button"
-            variant="body2"
-            underline="hover"
-            onClick={() => onclose()}
-            sx={{
-              fontWeight: 800,
-              fontSize: "1rem",
-              letterSpacing: ".1rem",
-              fontFamily: "poppins",
-              marginLeft:"15rem",
-              marginTop:"2rem"
-            }}
-          >
-            Go Back
-          </Link>
-        
+        <Link
+          component="button"
+          variant="body2"
+          underline="hover"
+          onClick={() => onclose()}
+          sx={{
+            fontWeight: 800,
+            fontSize: "1rem",
+            letterSpacing: ".1rem",
+            fontFamily: "poppins",
+            marginLeft: "15rem",
+            marginTop: "2rem",
+          }}>
+          Go Back
+        </Link>
       </Grid>
     </Modal>
   );

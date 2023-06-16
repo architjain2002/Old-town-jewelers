@@ -69,8 +69,6 @@ def predictSilver():
     # %%
     ans = model.predict(inp)
 
-    
-
     # %%
     data_before = df.iloc[-8:, 1].values
     data_after = sc.inverse_transform(ans.reshape(7, 1)).reshape(7).astype(int)

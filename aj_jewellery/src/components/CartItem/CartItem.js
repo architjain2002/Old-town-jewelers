@@ -146,11 +146,11 @@ function CartItem({ cartItem, toggleFlag }) {
           <TextField
             variant="standard"
             size="medium"
-            label={product.productMetal + " Rate"}
+            label={product.productMetal + " Rate (per g)"}
             color="primary"
             type="text"
             onKeyDown={(e) => e.preventDefault()}
-            value={localStorage.getItem("Gold")}
+            value={localStorage.getItem(product.productMetal)}
             sx={{
               mb: 3,
               textAlign: "center",

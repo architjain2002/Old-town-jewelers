@@ -9,15 +9,29 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import Footer from "../../components/Footer/Footer";
 import CalculatorModal from "../../components/Calculator/CalculatorModal";
 import Indicator from "../../components/Indicator/Indicator";
-function LandingPage({ socket }) {
-  const [calculator, setCalculator] = useState(false);
-  const [indicater, setIndicator] = useState(false);
-  useEffect(() => {}, [calculator, indicater]);
+function LandingPage({socket}) { 
+  const [calculator,setCalculator]= useState(false);
+  const [indicater,setIndicator]=useState(false);
+  const [change,setChange]=useState();
+
+  const changeUtility= async()=>{
+    const response=await fetch(process.env.REACT_APP_API_URL+'priceChange');
+    const json=await response.json();
+    setChange(json);
+  }
+
+  useEffect(()=>{
+    changeUtility();
+  },[])
+
+  useEffect(()=>{
+  },[calculator])
+
   return (
     <div className="landingPage">
       <Navbar />
-      {calculator && <CalculatorModal closeCal={() => setCalculator(false)} />}
-      {indicater && <Indicator closeIndicator={() => setIndicator(false)} />}
+      {calculator&&<CalculatorModal closeCal={()=>setCalculator(false)}/>}
+      {indicater&&<Indicator closeIndicator={()=>setIndicator(false)}/>}
       <div className="mainContent">
         <div className="left">
           <h1>Happiness Comes in the box of jewellery</h1>
@@ -61,24 +75,24 @@ function LandingPage({ socket }) {
           </thead>
           <tbody>
             <tr>
-              <td>Gold (per Kg)</td>
-              <td>Rs. 53,000</td>
-              <td>Rs. 250</td>
+              <td>Gold (per 10g)</td>
+              <td>Rs. {localStorage.getItem("Gold")*10}</td>
+              {change&&<td>Rs. {change[0].Gold}</td>}
             </tr>
             <tr>
               <td>Silver (per Kg)</td>
-              <td>Rs. 60,000</td>
-              <td>Rs. 300</td>
+              <td>Rs. {localStorage.getItem("Silver")*1000}</td>
+              {change&&<td>Rs. {change[1].Silver}</td>}
             </tr>
           </tbody>
         </table>
 
         <div className="buttonsPriceSection">
-          <Button value={"Indicator"} utility={() => setIndicator(true)} />
-          <Button value={"Calculate"} utility={() => setCalculator(true)} />
+          <Button value={"Indicator"} utility={()=>setIndicator(true)}/>
+          <Button value={"Calculate"} utility={()=>setCalculator(true)}/>
         </div>
       </div>
-      <Footer socket={socket} />
+      <Footer socket={socket}/>
     </div>
   );
 }

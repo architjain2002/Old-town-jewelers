@@ -11,8 +11,8 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 
 # uncomment the following only the first time
-# nltk.download('punkt') # first-time use only
-# nltk.download('wordnet') # first-time use only
+# nltk.download('punkt')  # first-time use only
+# nltk.download('wordnet')  # first-time use only
 # nltk.download('popular', quiet=True)
 # # for downloading packages
 

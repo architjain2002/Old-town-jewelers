@@ -1,14 +1,13 @@
-from flask_cors import CORS
-import requests
-from bs4 import BeautifulSoup as BS
-from flask import Flask, jsonify, request
-from apscheduler.schedulers.background import BackgroundScheduler
-import csv
-from silver import *
-from gold import *
-import time
 import nltk
-
+import time
+from gold import *
+from silver import *
+import csv
+from apscheduler.schedulers.background import BackgroundScheduler
+from flask import Flask, jsonify, request
+from bs4 import BeautifulSoup as BS
+import requests
+from flask_cors import CORS
 nltk.download("punkt")  # first-time use only
 nltk.download("wordnet")  # first-time use only
 nltk.download("popular", quiet=True)
@@ -160,7 +159,8 @@ def users():
 @app.route("/prices")
 def prices():
     return jsonify(
-        {"Gold": str(foreCastArray_gold[7])}, {"Silver": str(foreCastArray_silver[7])}
+        {"Gold": str(foreCastArray_gold[7])}, {
+            "Silver": str(foreCastArray_silver[7])}
     )
 
 

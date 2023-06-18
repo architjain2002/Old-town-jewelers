@@ -40,24 +40,24 @@ io.on("connection", async (socket) => {
     // socket.broadcast.emit("ChatBot Answer", data);
 
     //deployment phase
-    // const response = await axios
-    //   .post("https://aj-py.azurewebsites.net/chat", {
-    //     chat: data,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     socket.emit("Answer", response.data);
-    //   });
-
-    // testing phase
     const response = await axios
-      .post("http://127.0.0.1:5000/chat", {
+      .post("https://aj-py.azurewebsites.net/chat", {
         chat: data,
       })
       .then((response) => {
         console.log(response.data);
         socket.emit("Answer", response.data);
       });
+
+    // testing phase
+    // const response = await axios
+    //   .post("http://127.0.0.1:5000/chat", {
+    //     chat: data,
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     socket.emit("Answer", response.data);
+    //   });
 
     // const response = await fetch('http://127.0.0.1:5000/chat',{
     //     method: "POST",

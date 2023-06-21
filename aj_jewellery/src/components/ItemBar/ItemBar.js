@@ -6,7 +6,7 @@ function ItemBar({title}) {
     <div className='itemBar'>
         <div className='swipers'>
             <h4>{title}</h4>
-            <SwiperJs/>
+            <SwiperJs buttonVal={"See More"}/>
         </div>
     </div>
   )

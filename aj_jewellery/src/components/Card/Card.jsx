@@ -3,8 +3,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
 
-function Card({ card, buttonVal,openProduct}) {
-  const navigate=useNavigate();
+function Card({ card, buttonVal, openProduct }) {
+  const navigate = useNavigate();
   const link = "#" + card.productType;
   return (
     <div className="cardComponent">
@@ -15,11 +15,14 @@ function Card({ card, buttonVal,openProduct}) {
           <span className="tag">{card.productMetal}</span>
           <div className="name">{card.productName}</div>
           {/* navigate to productPage/#productId */}
-          {buttonVal==="See More"?
-          <AnchorLink href={link} style={{ textDecoration: "none" }}>
-            <button id="card_details_button" onClick={()=>navigate('/products')}>{buttonVal}</button>
-          </AnchorLink>
-          :<button id="card_details_button" onClick={()=>openProduct(card)}>{buttonVal}</button>}
+          {buttonVal === "See More" ?
+            <AnchorLink href={link} style={{ textDecoration: "none" }}>
+              <button id="card_details_button" onClick={() => navigate('/products')}>{buttonVal}</button>
+            </AnchorLink>
+            : buttonVal === "See More!" ?
+              <button id="card_details_button" onClick={() => navigate('/products')}>{buttonVal}</button>
+              :
+              <button id="card_details_button" onClick={() => openProduct(card)}>{buttonVal}</button>}
         </div>
       </div>
     </div>

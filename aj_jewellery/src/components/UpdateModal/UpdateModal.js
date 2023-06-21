@@ -31,6 +31,21 @@ const UpdateModal = ({ card, closeProduct, onUpdateUtility }) => {
     const productType = document.getElementById("type");
     const productPurety = document.getElementById("purety");
     const productPhoto = document.getElementById("photo");
+
+    if (
+      !(
+        productName.value &&
+        productQuantity.value &&
+        productWeight.value &&
+        productMetal.value &&
+        productType.value &&
+        productPurety.value &&
+        productPhoto.value
+      )
+    ) {
+      makeToast("warning", "All fields are required!");
+      return;
+    }
     const response = await fetch(
       process.env.REACT_APP_BACKEND_URL + "admin/updateProduct",
       {

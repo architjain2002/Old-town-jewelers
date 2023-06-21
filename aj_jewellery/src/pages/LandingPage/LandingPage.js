@@ -44,7 +44,7 @@ function LandingPage({ socket }) {
       </div>
 
       <div id="explore">
-        <Swiper />
+        <Swiper buttonVal={"See More!"}/>
       </div>
 
       <div className="mainContent">

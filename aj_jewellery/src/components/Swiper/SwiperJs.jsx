@@ -7,15 +7,15 @@ import './SwiperJs.css';
 
 register();
 
-function SwiperJs() {
+function SwiperJs({ buttonVal }) {
   const swiperElRef = useRef(null);
-  const [items,setItems]=useState([]);
+  const [items, setItems] = useState([]);
 
-  const getUser= async()=>{
+  const getUser = async () => {
 
-    const response=await fetch(process.env.REACT_APP_BACKEND_URL+'user/getProductItems');
+    const response = await fetch(process.env.REACT_APP_BACKEND_URL + 'user/getProductItems');
 
-    const json=await response.json();
+    const json = await response.json();
 
     setItems(json);
 
@@ -32,19 +32,19 @@ function SwiperJs() {
       navigation="true"
       pagination="true"
     >
-    {/* map the Card item with product... of certain item */}
-    {items.map((item,i) => (
+      {/* map the Card item with product... of certain item */}
+      {items.map((item, i) => (
 
-      <swiper-slide key={i}><Card card={item} buttonVal={"See More"}/></swiper-slide>
+        <swiper-slide key={i}><Card card={item} buttonVal={buttonVal} /></swiper-slide>
 
-    ))}
+      ))}
 
 
       {/* <swiper-slide><Card/></swiper-slide>
       <swiper-slide><Card/></swiper-slide>
       <swiper-slide><Card/></swiper-slide>
       <swiper-slide><Card/></swiper-slide> */}
-      
+
     </swiper-container>
   );
 };

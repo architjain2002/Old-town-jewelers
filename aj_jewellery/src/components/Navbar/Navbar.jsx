@@ -7,11 +7,11 @@ import MenuListComposition from "../MenuItem/MenuItem";
 import makeToast from "../../Toaster/Toaster";
 import CreateModal from "../CreateModal/CreateModal";
 
-function Navbar({onCreate}) {
+function Navbar({ onCreate = () => (console.log("Create Modal")) }) {
   const [hamburger, setHamburger] = useState(true);
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
   const [user, setUser] = useState(localStorage.getItem("user"));
-  const [modal,setModal] = useState(false);
+  const [modal, setModal] = useState(false);
   const navigate = useNavigate();
 
   const goHomePage = () => {
@@ -30,7 +30,10 @@ function Navbar({onCreate}) {
   };
 
   const goToOrderPage = () => {
-    navigate("/orders");
+    if (localStorage.getItem("userId") === "")
+      navigate("/admin/orders");
+    else
+      navigate("/orders");
   };
 
   const logOut = () => {
@@ -46,7 +49,7 @@ function Navbar({onCreate}) {
   const openModalForCreateProduct = () => {
     setModal(true);
   };
-  const closeCreateProductModal=()=>{
+  const closeCreateProductModal = () => {
     setModal(false);
     //update product page, if already in product page
   }
@@ -56,7 +59,7 @@ function Navbar({onCreate}) {
 
   return (
     <div className="navbar">
-      {modal&&<CreateModal closeProduct={closeCreateProductModal} onCreate={onCreate}/>}
+      {modal && <CreateModal closeProduct={closeCreateProductModal} onCreate={onCreate} />}
       <div className="logo">
         <img src={Logo} alt={"Logo"} />
         <p id="cursive">AJ Jewellers</p>
@@ -84,7 +87,7 @@ function Navbar({onCreate}) {
             <i className="fa-solid fa-cart-plus" />
           </span>
         )}
-        {!user||user === "" ? (
+        {!user || user === "" ? (
           <span onClick={() => goSignIn()}>SignIn</span>
         ) : (
           //on click open the profile page and there only have the option to log out
@@ -127,7 +130,7 @@ function Navbar({onCreate}) {
               </p>
             )}
 
-            {!user||user === "" ? (
+            {!user || user === "" ? (
               <p onClick={() => goSignIn()}>SignIn</p>
             ) : (
               <MenuListComposition logOut={() => logOut()} />

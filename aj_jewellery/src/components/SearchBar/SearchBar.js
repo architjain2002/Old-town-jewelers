@@ -15,12 +15,17 @@ function scrollToElement(elementId) {
 
 function SearchBar() {
 
-  const searchProduct =async (event)=>{
+const searchProduct =async (event)=>{
     if(event!=null&&(event.key==="Enter"||event.type==="click")){
       const product=document.getElementById("productData");
+      if(product.value ===""){
+        product.value="";
+        return;
+      }
       const response=await fetch(process.env.REACT_APP_BACKEND_URL+`user/getProductItem/${product.value}`);
       const json=await response.json();
-      scrollToElement(json.message);
+      if(json.message!=="/")
+        scrollToElement(json.message);
       product.value="";
     }
   }

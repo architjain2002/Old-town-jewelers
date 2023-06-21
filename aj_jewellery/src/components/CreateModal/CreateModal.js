@@ -23,6 +23,8 @@ const CreateModal = ({ closeProduct,onCreate}) => {
   };
 
   const createProduct= async ()=>{
+
+
     const productName=document.getElementById("name");
     const productQuantity=document.getElementById("quantity");
     const productWeight=document.getElementById("weight");
@@ -30,6 +32,24 @@ const CreateModal = ({ closeProduct,onCreate}) => {
     const productType=document.getElementById("type");
     const productPurety=document.getElementById("purety");
     const productPhoto=document.getElementById("photo");
+
+    if (
+          !(
+            productName.value &&
+            productQuantity.value &&
+            productWeight.value &&
+            productMetal.value &&
+            productType.value &&
+            productPurety.value &&
+            productPhoto.value
+          )
+        ) {
+          makeToast("warning", "All fields are required!");
+          return;
+        }
+
+
+
     const response = await fetch(process.env.REACT_APP_BACKEND_URL+"admin/addProduct", {
       method: "POST",
       headers: {

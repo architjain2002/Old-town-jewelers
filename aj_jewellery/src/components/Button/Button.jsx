@@ -1,8 +1,8 @@
 import React from 'react';
 import './Button.css';
-function Button({value,utility}) {
+function Button({ value, utility = () => (console.log("Button Clicked")) }) {
   return (
-    <button type='submit' id="button" onClick={()=>utility()}>{value}</button>
+    <button type='submit' id="button" onClick={() => utility()}>{value}</button>
   )
 }
 

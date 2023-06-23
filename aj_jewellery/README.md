@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Frontend Part - Using React and Material UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Old-town-jewels is a react based application for e-commerce jewellery store, with admin side and user side.
 
-## Available Scripts
 
-In the project directory, you can run:
+</br>
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Use this URL to access our website:  [Old-Town-Jewels](https://old-town-jewelers.azurewebsites.net/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+****
+</br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### To run this locally in your computer follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this github-repository 
+``` bash
+git clone https://github.com/architjain2002/Old-town-jewelers.git
 
-### `npm run eject`
+```
+2.  Go to the aj_jewellery directory (frontend-directory)
+```bash
+cd aj_jewellery
+```
+3. Execute cmd 'npm install' to install necessary libraries
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+``` bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Create .env file in the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+``` bash
+echo > ".env"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. In .env create these values
 
-## Learn More
+```bash
+#Backend Server - run after running python server
+REACT_APP_BACKEND_URL=http://localhost:3001/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+REACT_APP_ADMIN=(admin-email)
+REACT_APP_PASSWORD=(react-admin-password with salt)
+REACT_APP_SALT=(Add you own salt)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#Python Server - run first
+REACT_APP_API_URL=http://127.0.0.1:5000/
+```
 
-### Code Splitting
+6. Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+``` bash
+npm start
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+****
+</br>
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### Advanced Configuration
+Please make sure to update tests as appropriate.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
